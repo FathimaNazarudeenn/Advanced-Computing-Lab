@@ -1,0 +1,80 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled3.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyOKNtIIy+Dbh6QcnolmR36y",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/FathimaNazarudeenn/Advanced-Computing-Lab/blob/main/Experiment%202/svm%20iris%20linear\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "OVrCoCb0LrV1"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "file=pd.read_csv(\"/content/IRIS.csv\")\n",
+        "X=file[[\"sepal_length\",\"sepal_width\",\"petal_length\",\"petal_length\"]]\n",
+        "Y=file[\"species\"]"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.svm import SVC\n",
+        "ml=SVC(kernel='linear',C=1.0)\n",
+        "ml=ml.fit(X,Y)\n",
+        "res=ml.predict([[8.9,5.6,1.5,3.3]])\n",
+        "print(res)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iNifLgH6L1VI",
+        "outputId": "a3040f38-092a-403d-8943-fe9dd8095a4e"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['Iris-setosa']\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.7/dist-packages/sklearn/base.py:451: UserWarning: X does not have valid feature names, but SVC was fitted with feature names\n",
+            "  \"X does not have valid feature names, but\"\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
